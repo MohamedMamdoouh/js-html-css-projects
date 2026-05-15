@@ -20,12 +20,6 @@ A collection of frontend projects built with plain HTML, CSS, and JavaScript. Th
 
 1. Open the project folder you want to view.
 2. Open the `index.html` file in a browser.
-3. If the project has multiple files or folders, open the main HTML file for that project.
-
-## Recommended Workflow
-
-- Use a modern browser such as Chrome, Edge, or Firefox.
-- If you want live reload while developing, use a simple local server such as VS Code Live Server or Python's `http.server`.
 
 ## Notes
 
