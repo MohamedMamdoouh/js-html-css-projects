@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="cloudy.png" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="card">
+        <h1>Weather App (Open-Meteo API)</h1>
+        <div class="muted">
+          Search any city → get current weather + 7-day forecast.
+        </div>
+
+        <div class="row mt-12">
+          <input
+            id="city"
+            placeholder="Type a city… (e.g., Cairo, London, Tokyo)"
+            type="text"
+            maxlength="100"
+          />
+          <button id="btnSearch">Search</button>
+          <button id="btnUseCairo" class="secondary">Use Cairo</button>
+        </div>
+
+        <div class="status muted" id="loading">
+          <div class="spinner"></div>
+          <div>Loading…</div>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="grid hidden" id="results">
+          <div class="card">
+            <strong id="placeName">—</strong>
+            <div class="muted mt-6" id="placeMeta">—</div>
+            <div class="big" id="tempNow">—</div>
+            <div>
+              <span class="pill" id="weatherConditionPill"
+                >Weather Condition: —</span
+              >
+              <span class="pill" id="humidityPill">Humidity: —</span>
+              <span class="pill" id="windPill">Wind: —</span>
+            </div>
+
+            <div class="muted mt-10" id="timeMeta">—</div>
+          </div>
+
+          <div class="card">
+            <strong>7-Day Forecast</strong>
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Min</th>
+                  <th>Max</th>
+                  <th>Rain</th>
+                  <th>Condition</th>
+                </tr>
+              </thead>
+              <tbody id="forecastBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

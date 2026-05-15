@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="script.js"></script>
+    <link rel="icon" href="exchange.png" />
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="card">
+        <h1>Currency Converter</h1>
+        <div class="muted">Uses Frankfurter • No API key needed.</div>
+
+        <div class="row mt-12">
+          <button class="secondary" id="btnSwap">Swap</button>
+          <button class="secondary" id="btnUseUSDEGY">USD → EGY</button>
+          <button class="secondary" id="btnUseEURUSD">EUR → USD</button>
+        </div>
+
+        <div class="status muted" id="loading">
+          <div class="spinner"></div>
+          <div>Loading…</div>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="grid hide" id="content">
+          <section class="card">
+            <strong>Convert</strong>
+
+            <label for="amount">Amount</label>
+            <input id="amount" type="number" min="0" step="0.01" value="100" />
+
+            <div class="row">
+              <div class="flex">
+                <label for="from">From</label>
+                <select id="from"></select>
+              </div>
+              <div class="flex">
+                <label for="to">To</label>
+                <select id="to"></select>
+              </div>
+            </div>
+
+            <div class="row mt-12 flex-end">
+              <button id="btnConvert">Convert</button>
+            </div>
+
+            <div class="big" id="result">—</div>
+            <div class="muted" id="meta">—</div>
+
+            <div class="mt-12">
+              <span class="pill" id="ratePill">Rate: —</span>
+              <span class="pill" id="datePill">Date: —</span>
+            </div>
+          </section>
+
+          <section class="card">
+            <strong>Last 30 Days (Rate History)</strong>
+            <div class="muted mt-4">
+              Shows how 1 “From” currency changed against “To”.
+            </div>
+
+            <div class="mt-10">
+              <canvas id="chart"></canvas>
+            </div>
+
+            <table class="mt-10">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Rate</th>
+                </tr>
+              </thead>
+              <tbody id="historyBody"></tbody>
+            </table>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

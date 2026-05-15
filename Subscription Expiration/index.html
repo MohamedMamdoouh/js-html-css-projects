@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Subscription Expiration</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+    <link rel="icon" href="subscription-active.png" />
+  </head>
+
+  <body>
+    <div class="app">
+      <header>
+        <div class="title">
+          <h1>💳 Subscription Expiration Logic</h1>
+          <p>Check if a subscription is active, expiring soon, or expired.</p>
+        </div>
+        <div class="chip" id="todayChip">Today: —</div>
+      </header>
+
+      <div class="grid">
+        <section class="card">
+          <div class="cardHead">
+            <h2>🧾 Inputs</h2>
+          </div>
+
+          <div class="cardBody">
+            <div class="row2">
+              <label>
+                <div class="labelRow">Start Date (Required)</div>
+                <input id="startDate" type="date" />
+              </label>
+
+              <label>
+                <div class="labelRow">Plan (Required)</div>
+
+                <select id="plan">
+                  <option value="7">Weekly (7 days)</option>
+                  <option value="30" selected>Monthly (30 days)</option>
+                  <option value="90">Quarterly (90 days)</option>
+                  <option value="365">Yearly (365 days)</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="row2">
+              <label>
+                <div class="labelRow">
+                  <span>Grace Period (Optional)</span>
+                </div>
+                <input
+                  id="graceDays"
+                  type="number"
+                  min="0"
+                  max="30"
+                  value="0"
+                />
+              </label>
+
+              <label>
+                <div class="labelRow">
+                  <span>Expiring Soon Threshold (Optional)</span>
+                </div>
+                <input id="soonDays" type="number" min="0" max="30" value="7" />
+              </label>
+            </div>
+
+            <div class="toggleRow">
+              <label
+                class="switch"
+                title="If enabled, subscription counts as valid on the end date too."
+              >
+                <input id="inclusiveEnd" type="checkbox" checked />
+                <span>Inclusive end date</span>
+              </label>
+
+              <label
+                class="switch"
+                title="If enabled, we ignore real calendar months and use fixed day counts (7/30/90/365)."
+              >
+                <input id="fixedDaysMode" type="checkbox" checked />
+                <span>Fixed-days plan mode</span>
+              </label>
+            </div>
+
+            <div class="btnRow">
+              <button id="btnCheck">Check Status</button>
+              <button id="btnDemo">Demo (Start 20 days ago)</button>
+              <button id="btnClear">Clear</button>
+            </div>
+
+            <div class="msg" id="msgBox">
+              Tip: Choose a start date, plan, then click “Check Status”.
+            </div>
+
+            <div class="smallLine">
+              🔹 Status types: <b>Active</b> ✅, <b>Expiring Soon</b> ⚠️,
+              <b>Expired</b> ❌, <b>In Grace</b> 🕒<br />
+              🔹 You can simulate different business rules using the toggles.
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="cardHead">
+            <h2>📊 Results</h2>
+            <span class="chip" id="statusChip">Waiting…</span>
+          </div>
+
+          <div class="cardBody stats">
+            <div class="badge" id="badge">Status: —</div>
+
+            <div class="statGrid">
+              <div class="stat">
+                <div class="k">End Date</div>
+                <div class="v" id="outEnd">—</div>
+              </div>
+
+              <div class="stat">
+                <div class="k">Days Left</div>
+                <div class="v" id="outDaysLeft">—</div>
+              </div>
+
+              <div class="stat">
+                <div class="k">Grace Ends</div>
+                <div class="v" id="outGraceEnd">—</div>
+              </div>
+
+              <div class="stat">
+                <div class="k">Final Valid Until</div>
+                <div class="v" id="outFinalValid">—</div>
+              </div>
+            </div>
+
+            <div class="smallLine" id="detailsLine">Details: —</div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

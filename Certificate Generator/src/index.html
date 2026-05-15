@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Certificate Generator — Management Dose</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="page">
+      <div class="panel" id="formPanel">
+        <h2>Certificate Fields</h2>
+        <p class="hint">
+          Type values below — the certificate updates instantly.
+          <br />
+          Validation rules apply. Print is enabled only when all fields are
+          valid.
+        </p>
+
+        <div class="row" id="rowName">
+          <label for="studentName">Student Name</label>
+          <input
+            id="studentName"
+            type="text"
+            placeholder="e.g., Ahmed Ali"
+            autocomplete="off"
+          />
+          <div class="error">Name is required (min 3 characters).</div>
+        </div>
+
+        <div class="row" id="rowCourse">
+          <label for="courseName">Course Name</label>
+          <textarea
+            id="courseName"
+            placeholder="e.g., Mastering C++ Programming"
+          ></textarea>
+          <div class="error">Course name is required (min 6 characters).</div>
+        </div>
+
+        <div class="row" id="rowInstructor">
+          <label for="instructorName">Instructor Name</label>
+          <input
+            id="instructorName"
+            type="text"
+            placeholder="e.g., Mohammed Mamdouh"
+            autocomplete="off"
+          />
+          <div class="error">
+            Instructor name is required (min 3 characters).
+          </div>
+        </div>
+
+        <div class="row" id="rowSignature">
+          <label for="signatureFile">Signature Image</label>
+          <input id="signatureFile" type="file" accept="image/*" />
+          <div class="fileHint">
+            Upload a PNG/JPG/WebP. It will update the signature instantly.
+          </div>
+          <div class="error">Please upload a signature image.</div>
+        </div>
+
+        <div class="row" id="rowIssued">
+          <label for="issuedDate">Issued Date</label>
+          <input id="issuedDate" type="date" />
+          <div class="error">Please select an issued date.</div>
+        </div>
+
+        <div class="row" id="rowSerial">
+          <label for="serial">Certificate Serial</label>
+          <div class="serial-group">
+            <input
+              id="serial"
+              type="text"
+              placeholder="e.g., MD-2025-000123"
+              autocomplete="off"
+              disabled
+            />
+            <button id="btnGenerateSerial">Generate</button>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="btnFillDemo">Fill Demo</button>
+          <button type="button" id="btnReset">Reset</button>
+          <button type="button" class="primary" id="btnPrint" disabled>
+            Print A4 Landscape
+          </button>
+        </div>
+
+        <div class="status" id="statusLine"></div>
+      </div>
+
+      <div class="previewWrap">
+        <div class="toolbar panel">
+          <div class="small">
+            Preview (Print will output ONLY the certificate)
+          </div>
+          <div class="small" id="validBadge">❌ Not ready to print</div>
+        </div>
+
+        <div class="mdc-cert" id="cert">
+          <div class="mdc-frame-outer">
+            <div class="mdc-frame-inner">
+              <table class="mdc-meta">
+                <tr>
+                  <td class="mdc-metaCell mdc-left">
+                    <div class="mdc-metaLabel">Issued Date</div>
+                    <div class="mdc-metaValue" id="certIssued">—</div>
+                  </td>
+                  <td class="mdc-metaCell mdc-right">
+                    <div class="mdc-metaLabel">Certificate Serial</div>
+                    <div class="mdc-metaValue mdc-mono" id="certSerial">—</div>
+                  </td>
+                </tr>
+              </table>
+
+              <div class="mdc-header">
+                <img class="mdc-logo" src="../images/logo.png" alt="Logo" />
+              </div>
+
+              <div class="mdc-title">Certificate of Completion</div>
+              <div class="mdc-subtitle">This is proudly presented to</div>
+
+              <div class="mdc-name" id="certName">Student Name</div>
+
+              <div class="mdc-text">for successfully completing</div>
+
+              <div class="mdc-course" id="certCourse">
+                Course Name Goes Here
+              </div>
+
+              <div class="mdc-divider"></div>
+
+              <div class="mdc-bottom">
+                <table class="mdc-bottomTable">
+                  <tr>
+                    <td class="mdc-sealCol">
+                      <img
+                        class="mdc-sealImg"
+                        src="../images//Certified.png"
+                        alt="Seal"
+                      />
+                    </td>
+
+                    <td class="mdc-sigCol">
+                      <img
+                        class="mdc-sigImg"
+                        id="certSignatureImg"
+                        src="../images/DefaultSig.png"
+                        alt="Signature"
+                      />
+                      <div class="mdc-sigLine"></div>
+
+                      <div class="mdc-sigName" id="certInstructor">
+                        Dr Mohamed Abu Hadhoud
+                      </div>
+
+                      <div class="mdc-sigSpacer"></div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="mdc-footer">www.Website.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

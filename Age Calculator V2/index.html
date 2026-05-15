@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="age-range.png" />
+    <script type="module" src="script.js"></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <header>
+        <div class="title">
+          <h1>📅 Age Calculator</h1>
+          <p>Enter your birth date, then calculate your exact age.</p>
+        </div>
+
+        <div class="chip" id="todayChip">Today: —</div>
+      </header>
+
+      <div class="grid">
+        <section class="card">
+          <div class="cardHead">
+            <h2>🧾 Inputs</h2>
+            <span class="chip">Validation Applied</span>
+          </div>
+
+          <div class="cardBody">
+            <label>
+              <span>Birth Date</span>
+              <input id="birthDate" type="date" />
+            </label>
+
+            <div class="btnRow">
+              <button class="primary" id="btnCalc">Calculate Age</button>
+              <button id="btnToday">Use Today (Demo)</button>
+              <button id="btnClear">Clear</button>
+            </div>
+
+            <div class="msg" id="msgBox">
+              Tip: Choose a birth date and press “Calculate Age”.
+            </div>
+
+            <div class="hint">
+              🔹 Calculation is based on actual calendar rules (months length,
+              leap years).<br />
+              🔹 “Next Birthday” countdown shows how many days remain.
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="cardHead">
+            <h2>📊 Results</h2>
+            <span class="chip" id="statusChip">Waiting…</span>
+          </div>
+
+          <div class="cardBody stats">
+            <div class="statGrid">
+              <div class="stat">
+                <div class="k">Years</div>
+                <div class="v" id="outYears">—</div>
+              </div>
+
+              <div class="stat">
+                <div class="k">Months</div>
+                <div class="v" id="outMonths">—</div>
+              </div>
+
+              <div class="stat">
+                <div class="k">Days</div>
+                <div class="v" id="outDays">—</div>
+              </div>
+            </div>
+
+            <div class="smallLine" id="nextBirthdayLine">Next birthday: —</div>
+            <div class="smallLine" id="extraLine">Extra info: —</div>
+            <div class="smallLine" id="dayOfWeekLine">Day of birth: —</div>
+            <div class="smallLine" id="generationLine">Generation: —</div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

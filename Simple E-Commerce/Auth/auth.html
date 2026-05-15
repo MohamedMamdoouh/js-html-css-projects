@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Authentication</title>
+    <link rel="stylesheet" href="auth.css" />
+    <script type="module" src="auth.js"></script>
+    <link rel="icon" href="authentication.png" />
+  </head>
+
+  <body>
+    <div class="auth-shell">
+      <div class="auth-header">
+        <h1 id="formTitle">Sign In</h1>
+        <p id="formSubtitle">Please enter your details.</p>
+      </div>
+
+      <form id="signInForm" class="auth-form">
+        <div class="form-group">
+          <label for="signInEmail">Email</label>
+          <input
+            minlength="5"
+            maxlength="150"
+            type="email"
+            id="signInEmail"
+            required
+          />
+          <span class="error-message" id="signInEmailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signInPassword">Password</label>
+          <div class="input-with-toggle">
+            <input
+              minlength="8"
+              maxlength="150"
+              type="password"
+              id="signInPassword"
+              required
+            />
+            <button
+              type="button"
+              class="show-pass-toggle"
+              data-target="signInPassword"
+              aria-pressed="false"
+              title="Show password"
+            ></button>
+          </div>
+          <span class="error-message" id="signInPasswordError"></span>
+        </div>
+
+        <div class="form-options">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberMe" />
+            <span>Remember me</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign In</button>
+
+        <div class="form-footer">
+          <span>Don't have an account?</span>
+          <button type="button" id="signUpBtn" class="link-btn">Sign Up</button>
+        </div>
+      </form>
+
+      <form id="signUpForm" class="auth-form hidden">
+        <div class="form-group">
+          <label for="signUpName">Full Name</label>
+          <input
+            minlength="3"
+            maxlength="100"
+            type="text"
+            id="signUpName"
+            required
+          />
+          <span class="error-message" id="signUpNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signUpEmail">Email</label>
+          <input
+            minlength="5"
+            maxlength="150"
+            type="email"
+            id="signUpEmail"
+            required
+          />
+          <span class="error-message" id="signUpEmailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signUpPassword">Password</label>
+          <div class="input-with-toggle">
+            <input
+              minlength="8"
+              maxlength="150"
+              type="password"
+              id="signUpPassword"
+              required
+            />
+            <button
+              type="button"
+              class="show-pass-toggle"
+              data-target="signUpPassword"
+              aria-pressed="false"
+              title="Show password"
+            ></button>
+          </div>
+          <span class="error-message" id="signUpPasswordError"></span>
+
+          <div class="password-strength">
+            <div class="strength-bar" id="strength-bar"></div>
+            <span class="strength-text">Password strength</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="signUpConfirmPassword">Confirm Password</label>
+          <div class="input-with-toggle">
+            <input
+              minlength="8"
+              maxlength="150"
+              type="password"
+              id="signUpConfirmPassword"
+              required
+            />
+            <button
+              type="button"
+              class="show-pass-toggle"
+              data-target="signUpConfirmPassword"
+              aria-pressed="false"
+              title="Show password"
+            ></button>
+          </div>
+          <span class="error-message" id="signUpConfirmPasswordError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signUpAddress">Address</label>
+          <textarea
+            minlength="10"
+            maxlength="500"
+            id="signUpAddress"
+            rows="3"
+            required
+          ></textarea>
+          <span class="error-message" id="signUpAddressError"></span>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign Up</button>
+
+        <div class="form-footer">
+          <span>Already have an account?</span>
+          <button type="button" id="signInBtn" class="link-btn">Sign In</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="successModal" class="modal-overlay hidden">
+      <div class="modal">
+        <div class="modal-icon">✓</div>
+        <h2 id="modalTitle">Success!</h2>
+        <p id="modalMessage">Operation completed successfully.</p>
+        <button id="modalCloseBtn" class="btn-primary">Continue</button>
+      </div>
+    </div>
+  </body>
+</html>

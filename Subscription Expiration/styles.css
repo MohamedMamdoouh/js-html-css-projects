@@ -1,0 +1,337 @@
+:root {
+  color-scheme: dark;
+
+  /* 🔹 Design tokens (colors/spacing reused across UI) */
+  --bg: #0b1020;
+  --card: rgba(255, 255, 255, 0.06);
+  --card-2: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: #e9eefc;
+  --muted: rgba(233, 238, 252, 0.7);
+
+  --accent: #7aa2ff;
+  --good: #39d98a;
+  --warn: #ffcc66;
+  --bad: #ff5c7a;
+
+  --radius: 18px;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+
+  /* ✅ Soft radial glow background */
+  background:
+    radial-gradient(
+      1200px 800px at 20% 10%,
+      rgba(122, 162, 255, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      1000px 700px at 90% 20%,
+      rgba(255, 204, 102, 0.12),
+      transparent 60%
+    ),
+    var(--bg);
+
+  color: var(--text);
+}
+
+.app {
+  /* ❗ NOTE: your original code has a small typo:
+           width: min(1, 020px, 100%);
+           This should be:
+           width: min(1020px, 100%);
+           I fixed it below so layout works correctly. */
+  width: min(1020px, 100%);
+  display: grid;
+  gap: 16px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.title {
+  display: grid;
+  gap: 4px;
+}
+
+.title h1 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+}
+
+.title p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.chip {
+  border: 1px solid var(--border);
+  background: var(--card-2);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1.08fr 0.92fr;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr; /* ✅ Stack panels on small screens */
+  }
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.cardHead {
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardHead h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.cardBody {
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 560px) {
+  .row2 {
+    grid-template-columns: 1fr; /* ✅ Stack inputs on narrow screens */
+  }
+}
+
+label {
+  display: grid;
+  gap: 8px;
+}
+
+.labelRow {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: rgba(122, 162, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(122, 162, 255, 0.18);
+}
+
+.toggleRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  user-select: none;
+}
+
+.switch input {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--accent);
+}
+
+.btnRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  padding: 11px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+button.active {
+  border-color: rgba(122, 162, 255, 0.55);
+  background: rgba(122, 162, 255, 0.16);
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+.msg {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.msg.bad {
+  border-color: rgba(255, 92, 122, 0.55);
+  background: rgba(255, 92, 122, 0.12);
+  color: rgba(255, 210, 219, 0.95);
+}
+
+.msg.good {
+  border-color: rgba(57, 217, 138, 0.55);
+  background: rgba(57, 217, 138, 0.12);
+  color: rgba(209, 255, 234, 0.95);
+}
+
+.msg.warn {
+  border-color: rgba(255, 204, 102, 0.55);
+  background: rgba(255, 204, 102, 0.12);
+  color: rgba(255, 244, 214, 0.95);
+}
+
+.stats {
+  display: grid;
+  gap: 12px;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 560px) {
+  .statGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 14px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.stat .k {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.stat .v {
+  margin-top: 6px;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.badge.good {
+  border-color: rgba(57, 217, 138, 0.55);
+  background: rgba(57, 217, 138, 0.12);
+  color: rgba(209, 255, 234, 0.95);
+}
+
+.badge.warn {
+  border-color: rgba(255, 204, 102, 0.55);
+  background: rgba(255, 204, 102, 0.12);
+  color: rgba(255, 244, 214, 0.95);
+}
+
+.badge.bad {
+  border-color: rgba(255, 92, 122, 0.55);
+  background: rgba(255, 92, 122, 0.12);
+  color: rgba(255, 210, 219, 0.95);
+}
+
+.smallLine {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+span {
+  font-size: 14px;
+}

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Restaurant Table Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+    <link rel="icon" href="restaurant.png" />
+  </head>
+
+  <body>
+    <div class="shell">
+      <div class="header">
+        <div class="header-title">
+          <h1>Restaurant Table Manager</h1>
+          <p>Open tables, add orders from the menu, print checks in a popup.</p>
+        </div>
+        <div class="header-actions">
+          <div class="badge">Client-Side • JavaScript</div>
+        </div>
+      </div>
+
+      <div class="left-panel">
+        <div class="card">
+          <div class="section-title">🪑 Tables</div>
+
+          <div id="tablesList" class="tables-list"></div>
+
+          <div id="selectedTableLabel" class="selected-label">
+            Selected table: none
+          </div>
+
+          <div class="demo-controls">
+            <button id="btnAddTable" class="btn-secondary btn-small">
+              + Add Table
+            </button>
+            <button id="btnResetAllTables" class="btn-secondary btn-small">
+              Reset All
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="card">
+          <div class="section-title">📋 Menu</div>
+          <button id="btnAddItemToMenu" class="btn-secondary btn-small mb-12">
+            + Add Menu Item
+          </button>
+          <div id="menuGrid" class="menu-grid"></div>
+        </div>
+
+        <div class="card order-card">
+          <div class="section-title">🧾 Current Table Order</div>
+
+          <table>
+            <thead>
+              <tr>
+                <th class="col-item">Item</th>
+                <th class="col-price">Price</th>
+                <th class="col-qty">Qty</th>
+                <th class="col-subtotal">Subtotal</th>
+                <th class="col-remove"></th>
+              </tr>
+            </thead>
+            <tbody id="orderBody"></tbody>
+          </table>
+
+          <div id="orderEmpty" class="order-empty">
+            No table selected or no items yet.
+          </div>
+
+          <div class="order-footer">
+            <div>
+              <span class="total-label">Total:</span>
+              <span id="orderTotal" class="total-value">$0.00</span>
+            </div>
+
+            <div class="order-actions">
+              <button id="btnClearOrder" class="btn-secondary btn-small">
+                Clear Order
+              </button>
+              <button id="btnPrintCheckCloseTable">
+                Print Check & Close Table
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="customPopup" class="popup-overlay">
+      <div class="popup-content">
+        <p id="popupMessage"></p>
+        <div id="popupForm" class="hide">
+          <input
+            min="3"
+            maxlength="100"
+            id="itemName"
+            type="text"
+            placeholder="Item Name"
+            required
+          />
+          <input
+            min="0.1"
+            step="0.1"
+            id="itemPrice"
+            type="number"
+            placeholder="Price"
+            required
+          />
+          <textarea
+            id="itemDescription"
+            placeholder="Description"
+            required
+          ></textarea>
+        </div>
+        <div class="popup-buttons">
+          <button id="popupCancel" class="btn-secondary">Cancel</button>
+          <button id="popupOK" class="btn-primary">OK</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

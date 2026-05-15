@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checkout</title>
+    <link rel="icon" href="cart.png" />
+    <link rel="stylesheet" href="checkout.css" />
+    <script type="module" src="checkout.js"></script>
+  </head>
+
+  <body>
+    <div class="checkout-shell">
+      <div class="checkout-header">
+        <div>
+          <h1>Checkout</h1>
+          <p>Review your basket items stored in IndexedDB</p>
+        </div>
+
+        <button id="backBtn" class="btn-secondary">⬅ Back to Shop</button>
+      </div>
+
+      <div class="table-box">
+        <div class="section-title">🧺 Basket Summary</div>
+
+        <table>
+          <thead>
+            <tr>
+              <th class="text-left">Product</th>
+              <th class="col-qty">Qty</th>
+              <th class="col-price">Price</th>
+              <th class="col-total">Total</th>
+            </tr>
+          </thead>
+
+          <tbody id="basketBody"></tbody>
+        </table>
+
+        <div id="emptyMsg" class="empty">Loading basket...</div>
+
+        <div class="summary-row">
+          <span class="text-large">Total Amount:</span>
+          <span id="totalAmount" class="total-value">$0.00</span>
+        </div>
+
+        <div class="actions-row">
+          <button id="clearBasketBtn" class="btn-danger">
+            🗑 Clear Basket
+          </button>
+          <button id="confirmOrderBtn">✅ Confirm Order</button>
+        </div>
+      </div>
+
+      <div class="status-bar">
+        <div class="status-row">
+          <span id="statusDot" class="status-dot dot-wait"></span>
+          <span id="statusText">Opening database...</span>
+        </div>
+        <span>Basket stored in IndexedDB → cart</span>
+      </div>
+    </div>
+  </body>
+</html>

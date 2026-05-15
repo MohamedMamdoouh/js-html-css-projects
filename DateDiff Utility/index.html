@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Date Diff Utility</title>
+    <script type="module" src="script.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="calendar.png" />
+  </head>
+
+  <body>
+    <div class="app">
+      <header>
+        <div class="title">
+          <h1>🧮 Date Diff Utility</h1>
+          <p>
+            Compare two dates and get the difference (days / weeks / months /
+            years).
+          </p>
+        </div>
+        <div class="chip" id="todayChip">Today: —</div>
+      </header>
+
+      <div class="grid">
+        <section class="card">
+          <div class="cardHead">
+            <h2>🧾 Inputs</h2>
+            <span class="chip">HTML + CSS + JS only</span>
+          </div>
+
+          <div class="cardBody">
+            <div class="row2">
+              <label>
+                <span>Start Date</span>
+                <input id="startDate" type="date" />
+              </label>
+
+              <label>
+                <span>End Date</span>
+                <input id="endDate" type="date" />
+              </label>
+            </div>
+
+            <div class="toggleRow">
+              <label
+                class="switch"
+                title="If enabled, swaps dates if start is after end."
+              >
+                <input id="autoSwap" type="checkbox" checked />
+                <span>Auto-swap if start > end</span>
+              </label>
+
+              <label
+                class="switch"
+                title="If enabled, include both start and end day in day counting."
+              >
+                <input id="inclusiveDays" type="checkbox" />
+                <span>Inclusive day count</span>
+              </label>
+            </div>
+
+            <div class="btnRow">
+              <button id="btnCalc">Calculate Difference</button>
+              <button id="btnDemo">Demo (Last 90 Days)</button>
+              <button id="btnClear">Clear</button>
+            </div>
+
+            <div class="msg" id="msgBox">
+              Tip: Pick start/end dates, then click “Calculate Difference”.
+            </div>
+
+            <div class="smallLine">
+              🔹 “Months/Years” are calculated using real calendar
+              boundaries.<br />
+              🔹 “Days/Weeks” use exact day difference.
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="cardHead">
+            <h2>📊 Results</h2>
+            <span class="chip" id="statusChip">Waiting…</span>
+          </div>
+
+          <div class="cardBody stats">
+            <div class="statGrid">
+              <div class="stat">
+                <div class="k">Total Days</div>
+                <div class="v" id="outDays">—</div>
+              </div>
+
+              <div class="stat">
+                <div class="k">Total Weeks</div>
+                <div class="v" id="outWeeks">—</div>
+              </div>
+
+              <div class="stat">
+                <div class="k">Calendar Months</div>
+                <div class="v" id="outMonths">—</div>
+              </div>
+
+              <div class="stat">
+                <div class="k">Calendar Years</div>
+                <div class="v" id="outYears">—</div>
+              </div>
+            </div>
+
+            <div class="smallLine" id="rangeLine">Range: —</div>
+            <div class="smallLine" id="breakdownLine">Breakdown: —</div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script></script>
+  </body>
+</html>

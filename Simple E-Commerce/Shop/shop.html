@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Shop</title>
+    <link rel="stylesheet" href="shop.css" />
+    <script type="module" src="shop.js"></script>
+    <link rel="icon" href="store.png" />
+  </head>
+
+  <body>
+    <div class="page-shell">
+      <div class="header">
+        <div class="header-title">
+          <h1>Simple E-Commerce App</h1>
+          <p>Products stored in IndexedDB.</p>
+        </div>
+        <div class="header-actions">
+          <div class="badge">IndexedDB • Products Store + Cart Store</div>
+          <button id="logoutBtn" class="btn-logout">Logout</button>
+        </div>
+      </div>
+
+      <div class="products-panel">
+        <div class="section-title">🛒 Products</div>
+        <div id="productsGrid" class="products-grid"></div>
+      </div>
+
+      <div class="cart-panel">
+        <div class="cart-card">
+          <div class="section-title">🧺 Basket</div>
+
+          <div id="cartItems" class="cart-items">
+            <div id="cartEmpty" class="cart-empty">Your basket is empty.</div>
+          </div>
+
+          <div class="cart-footer">
+            <span class="total-label">Total:</span>
+            <span id="cartTotal" class="total-value">$0.00</span>
+          </div>
+
+          <div class="cart-actions">
+            <button id="clearCartBtn" class="btn-danger">
+              🗑 Clear Basket
+            </button>
+            <button id="checkoutBtn">Checkout →</button>
+          </div>
+
+          <div class="cart-status">
+            <div id="statusDot" class="status-dot dot-wait"></div>
+            <span id="statusText">Opening database...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

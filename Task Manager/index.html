@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Task Manager — IndexedDB</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="card">
+        <div class="topbar">
+          <div>
+            <h1>Task Manager</h1>
+            <div class="muted">One page • Modern UI • Using IndexedDB</div>
+          </div>
+
+          <div class="row">
+            <button class="secondary" id="btnSeed">Seed</button>
+            <button class="secondary" id="btnClearAll">Clear All</button>
+          </div>
+        </div>
+
+        <div class="row row-buttons">
+          <div class="row filters" id="filters">
+            <button class="secondary active" data-filter="all">All</button>
+            <button class="secondary" data-filter="pending">Pending</button>
+            <button class="secondary" data-filter="done">Done</button>
+          </div>
+
+          <div class="row row-search">
+            <input
+              type="search"
+              id="search"
+              placeholder="Search title/description…"
+            />
+          </div>
+        </div>
+
+        <div class="status muted" id="loading">
+          <div class="spinner"></div>
+          <div>Loading…</div>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="grid mt-12">
+          <section class="card p-14">
+            <strong>Add New Task</strong>
+            <div class="muted mt-6">
+              Pending tasks are <span class="pill">Yellow</span>. Mark done to
+              turn <span class="pill">Green</span>.
+            </div>
+
+            <label for="title">Title (required)</label>
+            <input
+              id="title"
+              maxlength="80"
+              placeholder="e.g., Study for college"
+            />
+
+            <label for="desc">Description (optional, max 300)</label>
+            <textarea
+              id="desc"
+              maxlength="300"
+              placeholder="Details…"
+            ></textarea>
+
+            <div class="row mt-12">
+              <div>
+                Tip: Press <span class="pill">Ctrl</span> +
+                <span class="pill">Enter</span> to add quickly.
+              </div>
+              <div class="row">
+                <button class="secondary" id="btnReset">Reset</button>
+                <button id="btnAdd">Add Task</button>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="row justify-between">
+              <div class="row">
+                <strong>Tasks</strong>
+                <span class="muted" id="shown"></span>
+              </div>
+              <div>
+                <span class="pill" id="stats"
+                  >Total: 0 • Pending: 0 • Done: 0</span
+                >
+              </div>
+            </div>
+
+            <div class="list" id="list"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+  </body>
+</html>
