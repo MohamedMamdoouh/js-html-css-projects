@@ -4,7 +4,7 @@ A frontend weather app interface that displays weather information using HTML, C
 
 ## Summary
 
-Search for weather conditions and view results in a polished weather dashboard layout.
+Search for weather conditions and view results in a polished weather dashboard layout. It uses api calls to fetch weather data and displays it in a user-friendly format.
 
 ## Features
 
